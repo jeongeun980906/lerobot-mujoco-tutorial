@@ -1,4 +1,8 @@
 lerobot
 demo_data
+demo_data_language
 ckpt
 asset/objaverse/plate_11
+omy_pnp
+.venv
+wandb

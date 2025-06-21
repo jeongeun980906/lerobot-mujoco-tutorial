@@ -4,17 +4,10 @@ This repository contains minimal examples for collecting demonstration data and 
 ## Installation
 We have tested our environment on python 3.10. 
 
-First, let's install lerobot package.
-```
-git clone https://github.com/huggingface/lerobot.git
-cd lerobot
-pip install -e .
-```
 I do **not** recommend installing lerobot package with `pip install lerobot`. This causes errors. 
 
-Install mujoco package dependencies.
+Install mujoco package dependencies and lerobot
 ```
-cd ..
 pip install -r requirements.txt
 ```
 Make sure your mujoco version is **3.1.6**.
