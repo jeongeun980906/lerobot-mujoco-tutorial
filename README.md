@@ -20,6 +20,8 @@ unzip plate_11.zip
 
 ### Updates & Plans
 
+**We are still working on the new environment for training pi0. We will update the code before end of June.**
+
 :white_check_mark: Viewer Update.
 
 :heavy_check_mark: Add different mugs, plates for different language instructions.
