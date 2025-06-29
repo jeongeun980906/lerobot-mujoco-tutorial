@@ -173,7 +173,7 @@ Deploy trained policy in simulation.
 - [6.visualize_data.ipynb](6.visualize_data.ipynb): Visualize Collected Data
 - [train_pi0.py](train_pi0.py): Training script
 - [pi0_omy.yaml](pi0_omy.yaml): Training configuration file
-- [7.pi0,ipynb](7.pi0.ipynb): Policy deployment
+- [7.pi0.ipynb](7.pi0.ipynb): Policy deployment
 
 ### Model and Dataset 🤗
 <table>
