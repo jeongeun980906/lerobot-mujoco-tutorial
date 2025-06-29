@@ -34,9 +34,9 @@ unzip plate_11.zip
 
 :white_check_mark: Viewer Update.
 
-:heavy_check_mark: Add different mugs, plates for different language instructions.
+:white_check_mark: Add different mugs, plates for different language instructions.
 
-:heavy_check_mark: Add pi_0 training and inference. 
+:white_check_mark: Add pi_0 training and inference. 
 
 
 ## 1. Collect Demonstration Data
