@@ -10,7 +10,7 @@ This repository contains minimal examples for collecting demonstration data and 
 - [:pushpin: 4. Deploy ACT](#4-deploy-your-policy)
 - [:fire: 5-7. Train pi_0 and Deploy](#5-7-train-pi_0-with-language-instruction-and-deploy)
     - [🤗 Model and Dataset](#model-and-dataset-)
-- [Acknowledgements](#acknowledgements)
+- [:pencil: Acknowledgements](#acknowledgements)
 
 ## Installation
 We have tested our environment on python 3.10. 
