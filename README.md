@@ -4,11 +4,11 @@ This repository contains minimal examples for collecting demonstration data and 
 ## Table of Contents
 - [:pencil: Installation](#installation)
 - [:white_check_mark: Updates and Plans](#updates--plans)
-- [:pencil: 1. Collect Demonstration Data](#1-collect-demonstration-data)
-- [:pencil: 2. Playback Your Data](#2-playback-your-data)
-- [:pencil: 3. Train Action-Chunking-Transformer (ACT)](#3-train-action-chunking-transformer-act)
-- [:pencil: 4. Deploy ACT](#4-deploy-your-policy)
-- [:pencil: 5-7. Train pi_0 and Deploy](#5-7-train-pi_0-with-language-instruction-and-deploy)
+- [:video_game: 1. Collect Demonstration Data](#1-collect-demonstration-data)
+- [:movie_camera: 2. Playback Your Data](#2-playback-your-data)
+- [:fire: 3. Train Action-Chunking-Transformer (ACT)](#3-train-action-chunking-transformer-act)
+- [:pushpin: 4. Deploy ACT](#4-deploy-your-policy)
+- [:fire: 5-7. Train pi_0 and Deploy](#5-7-train-pi_0-with-language-instruction-and-deploy)
     - [🤗 Model and Dataset](#model-and-dataset-)
 - [Acknowledgements](#acknowledgements)
 
