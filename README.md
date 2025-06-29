@@ -8,7 +8,7 @@ This repository contains minimal examples for collecting demonstration data and 
 - [:pencil: 3. Train Action-Chunking-Transformer (ACT)](#3-train-action-chunking-transformer-act)
 - [:pencil: 4. Deploy ACT](#4-deploy-your-policy)
 - [:pencil: 5-7. Train pi_0 and Deploy](#5-7-train-pi_0-with-language-instruction-and-deploy)
-    - [Model and Dataset 🤗](#model-and-dataset-)
+    - [🤗 Model and Dataset](#model-and-dataset-)
 - [Acknowledgements](#acknowledgements)
 
 ## Installation
