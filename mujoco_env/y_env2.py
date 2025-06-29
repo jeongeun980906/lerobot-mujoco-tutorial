@@ -72,19 +72,26 @@ class SimpleEnv2:
         self.env.set_p_base_body(body_name='body_obj_plate_11',p=plate_xyz)
         self.env.set_R_base_body(body_name='body_obj_plate_11',R=np.eye(3,3))
         # Set object positions
-        obj_names = self.env.get_body_names(prefix='body_obj_mug')
-        n_obj = len(obj_names)
         obj_xyzs = sample_xyzs(
-            n_obj,
-            x_range   = [+0.24,+0.4],
-            y_range   = [-0.05,+0.2],
+            1,
+            x_range   = [+0.32,+0.33],
+            y_range   = [-0.00,+0.02],
             z_range   = [0.83,0.83],
             min_dist  = 0.16,
             xy_margin = 0.0
         )
-        for obj_idx in range(n_obj):
-            self.env.set_p_base_body(body_name=obj_names[obj_idx],p=obj_xyzs[obj_idx,:])
-            self.env.set_R_base_body(body_name=obj_names[obj_idx],R=np.eye(3,3))
+        self.env.set_p_base_body(body_name='body_obj_mug_5',p=obj_xyzs[0,:])
+        self.env.set_R_base_body(body_name='body_obj_mug_5',R=np.eye(3,3))
+        obj_xyzs = sample_xyzs(
+            1,
+            x_range   = [+0.29,+0.3],
+            y_range   = [0.19,+0.21],
+            z_range   = [0.83,0.83],
+            min_dist  = 0.16,
+            xy_margin = 0.0
+        )
+        self.env.set_p_base_body(body_name='body_obj_mug_6',p=obj_xyzs[0,:])
+        self.env.set_R_base_body(body_name='body_obj_mug_6',R=np.eye(3,3))
         self.env.forward(increase_tick=False)
 
         # Set the initial pose of the robot

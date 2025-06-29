@@ -1,6 +1,16 @@
 # LeRobot Tutorial with MuJoCo
 This repository contains minimal examples for collecting demonstration data and training (or fine-tuning) vision language action models on custom datasets. 
 
+## Table of Contents
+- [Installation](#installation)
+- [1. Collect Demonstration Data](#1-collect-demonstration-data)
+- [2. Playback Your Data](#2-playback-your-data)
+- [3. Train Action-Chunking-Transformer (ACT)](#3-train-action-chunking-transformer-act)
+- [4. Deploy ACT](#4-deploy-your-policy)
+- [5-7. Train pi_0 and Deploy](#5-7-train-pi_0-with-language-instruction-and-deploy)
+    - [Model and Dataset🤗](#model-and-dataset-)
+- [Acknowledgements](#acknowledgements)
+
 ## Installation
 We have tested our environment on python 3.10. 
 
@@ -29,7 +39,7 @@ unzip plate_11.zip
 :heavy_check_mark: Add pi_0 training and inference. 
 
 
-## 1. Collection Demonstration Data
+## 1. Collect Demonstration Data
 
 Run [1.collect_data.ipynb](1.collect_data.ipynb)
 
@@ -155,6 +165,76 @@ You can download checkpoint from [google drive](https://drive.google.com/drive/f
 <img src="./media/rollout.gif" width="480" height="360" controls></img>
 
 Deploy trained policy in simulation.
+
+
+## 5-7. Train pi_0 with language instruction and deploy.
+
+- [5.language_env.ipynb](5.language_env.ipynb): Collect Dataset with keyboard teleoperation. The command is same as first environment.
+- [6.visualize_data.ipynb](6.visualize_data.ipynb): Visualize Collected Data
+- [train_pi0.py](train_pi0.py): Training script
+- [pi0_omy.yaml](pi0_omy.yaml): Training configuration file
+- [7.pi0,ipynb](7.pi0.ipynb): Policy deployment
+
+### Model and Dataset 🤗
+<table>
+  <tr>
+    <th> Model 🤗 </th>
+    <th> Dataset  🤗</th>
+    </tr>
+    <tr>
+        <td> <a href="https://huggingface.co/Jeongeun/omy_pnp_pi0"> Model </a></td>
+        <td> <a href="https://huggingface.co/datasets/Jeongeun/omy_pnp_language"> Dataset </a></td>
+    </tr>
+</table>
+
+### Rollout of trained policy
+
+<img src="./media/rollout2.gif" width="480" height="360" controls></img>
+
+### Environment
+**Teleoperated**
+
+<img src="./media/teleop_v2.gif" width="480" height="360" controls></img>
+
+**Data**
+
+<img src="./media/data_v2.gif" width="480" height="360" controls></img>
+
+
+### Train logs
+<image src="./media/wandb.png"  width="480" height="360">
+
+### Configuration File
+```
+dataset:
+  repo_id: omy_pnp_language # Repository ID
+  root: ./demo_data_language # Your root for data file!
+policy:
+  type : pi0
+  chunk_size: 5
+  n_action_steps: 5
+  
+save_checkpoint: true
+output_dir: ./ckpt/pi0_omy <- Save directory
+batch_size: 16
+job_name : pi0_omy
+resume: false 
+seed : 42
+num_workers: 8
+steps: 20_000
+eval_freq: -1 # No evaluation
+log_freq: 50
+save_checkpoint: true
+save_freq: 10_000
+use_policy_training_preset: true
+  
+wandb:
+  enable: true
+  project: pi0_omy
+  entity: <your_wandb_entity>
+  disable_artifact: true
+```
+
 
 ## Acknowledgements
 - The asset for the robotis-omy manipulator is from [robotis_mujoco_menagerie](https://github.com/ROBOTIS-GIT/robotis_mujoco_menagerie/tree/main).

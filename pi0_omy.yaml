@@ -1,26 +1,27 @@
 dataset:
-  repo_id: omy_pnp
-  root: ./omy_pnp
+  repo_id: omy_pnp_language # Repository ID
+  root: ./demo_data_language # Your root for data file!
 policy:
   type : pi0
   chunk_size: 5
   n_action_steps: 5
+  
 save_checkpoint: true
-output_dir: ./ckpt/pi0_omy
+output_dir: ./ckpt/pi0_omy <- Save directory
 batch_size: 16
 job_name : pi0_omy
-resume: false
+resume: false 
 seed : 42
 num_workers: 8
 steps: 20_000
 eval_freq: -1 # No evaluation
 log_freq: 50
 save_checkpoint: true
-save_freq: 5_000
+save_freq: 10_000
 use_policy_training_preset: true
   
 wandb:
   enable: true
   project: pi0_omy
-  entity: YOUR ENTITY
+  entity: <your_wandb_entity>
   disable_artifact: true
