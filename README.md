@@ -2,13 +2,13 @@
 This repository contains minimal examples for collecting demonstration data and training (or fine-tuning) vision language action models on custom datasets. 
 
 ## Table of Contents
-- [Installation](#installation)
+- [:pencil: Installation](#installation)
 - [1. Collect Demonstration Data](#1-collect-demonstration-data)
 - [2. Playback Your Data](#2-playback-your-data)
 - [3. Train Action-Chunking-Transformer (ACT)](#3-train-action-chunking-transformer-act)
 - [4. Deploy ACT](#4-deploy-your-policy)
 - [5-7. Train pi_0 and Deploy](#5-7-train-pi_0-with-language-instruction-and-deploy)
-    - [Model and Dataset🤗](#model-and-dataset-)
+    - [Model and Dataset 🤗](#model-and-dataset-)
 - [Acknowledgements](#acknowledgements)
 
 ## Installation
