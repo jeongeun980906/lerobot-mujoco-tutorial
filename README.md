@@ -175,6 +175,11 @@ Deploy trained policy in simulation.
 - [pi0_omy.yaml](pi0_omy.yaml): Training configuration file
 - [7.pi0.ipynb](7.pi0.ipynb): Policy deployment
 
+### Training Scripts
+```
+python train_pi0.py --config_path pi0_omy.yaml
+```
+
 ### Model and Dataset 🤗
 <table>
   <tr>
@@ -202,6 +207,7 @@ Deploy trained policy in simulation.
 
 
 ### Train logs
+
 <image src="./media/wandb.png"  width="480" height="360">
 
 ### Configuration File
