@@ -3,13 +3,15 @@ This repository contains minimal examples for collecting demonstration data and 
 
 ## Table of Contents
 - [:pencil: Installation](#installation)
-- [:white_check_mark: Updates and Plans](#updates--plans)
+- [:mega: Updates and Plans](#updates--plans)
 - [:video_game: 1. Collect Demonstration Data](#1-collect-demonstration-data)
 - [:movie_camera: 2. Playback Your Data](#2-playback-your-data)
 - [:fire: 3. Train Action-Chunking-Transformer (ACT)](#3-train-action-chunking-transformer-act)
 - [:pushpin: 4. Deploy ACT](#4-deploy-your-policy)
-- [:fire: 5-7. Train pi_0 and Deploy](#5-7-train-pi_0-with-language-instruction-and-deploy)
-    - [🤗 Model and Dataset](#model-and-dataset-)
+- [:floppy_disk: 5-6. Language conditioned Environment.](#5-6-collect-data-and-visualize-in-lanugage-conditioned-environment)
+- [🤗 Models and Dataset](#models-and-dataset-)
+- [:zap:7.Train and deploy pi_0](#7-train-and-deploy-pi_0)
+- [:bulb:8.Train and deploy smolvla (In-progress)](#)
 - [:pencil: Acknowledgements](#acknowledgements)
 
 ## Installation
@@ -39,6 +41,7 @@ unzip plate_11.zip
 
 :white_check_mark: Add pi_0 training and inference. 
 
+TODO: Add SmolVLA
 
 ## 1. Collect Demonstration Data
 
@@ -168,43 +171,47 @@ You can download checkpoint from [google drive](https://drive.google.com/drive/f
 Deploy trained policy in simulation.
 
 
-## 5-7. Train pi_0 with language instruction and deploy.
+## 5-6. Collect data and visualize in lanugage conditioned environment
 
 - [5.language_env.ipynb](5.language_env.ipynb): Collect Dataset with keyboard teleoperation. The command is same as first environment.
 - [6.visualize_data.ipynb](6.visualize_data.ipynb): Visualize Collected Data
-- [train_pi0.py](train_pi0.py): Training script
-- [pi0_omy.yaml](pi0_omy.yaml): Training configuration file
-- [7.pi0.ipynb](7.pi0.ipynb): Policy deployment
 
-### Training Scripts
-```
-python train_pi0.py --config_path pi0_omy.yaml
-```
 
-### Model and Dataset 🤗
+### Environment
+**Data**
+
+<img src="./media/data_v2.gif" width="480" height="360" controls></img>
+
+
+## Models and Dataset 🤗
 <table>
   <tr>
     <th> Model 🤗 </th>
     <th> Dataset  🤗</th>
     </tr>
     <tr>
-        <td> <a href="https://huggingface.co/Jeongeun/omy_pnp_pi0"> Model </a></td>
+        <td> <a href="https://huggingface.co/Jeongeun/omy_pnp_pi0"> pi_0 Finetuned </a></td>
         <td> <a href="https://huggingface.co/datasets/Jeongeun/omy_pnp_language"> Dataset </a></td>
     </tr>
 </table>
 
+## 7. Train and Deploy pi_0
+- [train_model.py](train_model.py): Training script
+- [pi0_omy.yaml](pi0_omy.yaml): Training configuration file
+- [7.pi0.ipynb](7.pi0.ipynb): Policy deployment
+
+
+
+### Training Scripts
+```
+python train_model.py --config_path pi0_omy.yaml
+```
+
+
+
 ### Rollout of trained policy
 
 <img src="./media/rollout2.gif" width="480" height="360" controls></img>
-
-### Environment
-**Teleoperated**
-
-<img src="./media/teleop_v2.gif" width="480" height="360" controls></img>
-
-**Data**
-
-<img src="./media/data_v2.gif" width="480" height="360" controls></img>
 
 
 ### Train logs

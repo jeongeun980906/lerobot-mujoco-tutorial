@@ -136,7 +136,10 @@ def train(cfg: TrainPipelineConfig):
         eval_env = make_env(cfg.env, n_envs=cfg.eval.batch_size, use_async_envs=cfg.eval.use_async_envs)
 
     logging.info("Creating policy")
-    cfg.policy.pretrained_path = 'lerobot/pi0'
+    if cfg.policy.type == "pi0":
+        cfg.policy.pretrained_path = 'lerobot/pi0'
+    elif cfg.policy.type == 'smolvla':
+        cfg.policy.pretrained_path = 'lerobot/smolvla_base'
     policy = make_policy(
         cfg=cfg.policy,
         ds_meta=dataset.meta,
