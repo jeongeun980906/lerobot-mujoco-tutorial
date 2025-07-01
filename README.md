@@ -11,7 +11,7 @@ This repository contains minimal examples for collecting demonstration data and 
 - [:floppy_disk: 5-6. Language conditioned Environment.](#5-6-collect-data-and-visualize-in-lanugage-conditioned-environment)
 - [🤗 Models and Dataset](#models-and-dataset-)
 - [:zap:7.Train and deploy pi_0](#7-train-and-deploy-pi_0)
-- [:bulb:8.Train and deploy smolvla (In-progress)](#)
+- [:bulb:8.Train and deploy smolvla](#8-train-and-deploy-smolvla)
 - [:pencil: Acknowledgements](#acknowledgements)
 
 ## Installation
@@ -190,8 +190,12 @@ Deploy trained policy in simulation.
     <th> Dataset  🤗</th>
     </tr>
     <tr>
-        <td> <a href="https://huggingface.co/Jeongeun/omy_pnp_pi0"> pi_0 Finetuned </a></td>
-        <td> <a href="https://huggingface.co/datasets/Jeongeun/omy_pnp_language"> Dataset </a></td>
+        <td> <a href="https://huggingface.co/Jeongeun/omy_pnp_pi0"> pi_0 finetuned </a></td>
+        <td> <a href="https://huggingface.co/datasets/Jeongeun/omy_pnp_language"> dataset </a></td>
+    </tr>
+    <tr>
+        <td> <a href="https://huggingface.co/Jeongeun/omy_pnp_smolvla"> smolvla finetuned </td>
+        <td>  same dataset</td>
     </tr>
 </table>
 
@@ -245,6 +249,62 @@ use_policy_training_preset: true
 wandb:
   enable: true
   project: pi0_omy
+  entity: <your_wandb_entity>
+  disable_artifact: true
+```
+
+## 8. Train and Deploy Smolvla
+
+- [train_model.py](train_model.py): Training script
+- [smolvla_omy.yaml](smolvla_omy.yaml): Training configuration file
+- [8.smolvla.ipynb](8.smolvla.ipynb): Policy deployment
+
+
+
+### Training Scripts
+```
+python train_model.py --config_path smolvla_omy.yaml
+```
+
+
+
+### Rollout of trained policy
+
+<img src="./media/rollout3.gif" width="480" height="360" controls></img>
+
+
+### Train logs
+
+<image src="./media/wandb2.png"  width="480" height="360">
+
+### Configuration File
+```
+dataset:
+  repo_id: omy_pnp_language # Repository ID
+  root: ./demo_data_language # Your root for data file!
+policy:
+  type : smolvla
+  chunk_size: 5
+  n_action_steps: 5
+  device: cuda
+  
+save_checkpoint: true
+output_dir: ./ckpt/smolvla_omy # Save directory
+batch_size: 16
+job_name : smolvla_omy
+resume: false 
+seed : 42
+num_workers: 8
+steps: 20_000
+eval_freq: -1 # No evaluation
+log_freq: 50
+save_checkpoint: true
+save_freq: 10_000
+use_policy_training_preset: true
+  
+wandb:
+  enable: true
+  project: smolvla_omy
   entity: <your_wandb_entity>
   disable_artifact: true
 ```
