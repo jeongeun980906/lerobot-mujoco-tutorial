@@ -33,15 +33,13 @@ unzip plate_11.zip
 
 ### Updates & Plans
 
-**We are still working on the new environment for training pi0. We will update the code before end of June.**
-
 :white_check_mark: Viewer Update.
 
 :white_check_mark: Add different mugs, plates for different language instructions.
 
 :white_check_mark: Add pi_0 training and inference. 
 
-TODO: Add SmolVLA
+:white_check_mark: Add SmolVLA
 
 ## 1. Collect Demonstration Data
 
